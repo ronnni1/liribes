@@ -1,6 +1,8 @@
 'use client';
 
 import { useState } from 'react';
+import Image from 'next/image';
+import staffImg from '@/assets/staff.png';
 
 const steps = [
   {
@@ -46,10 +48,18 @@ export default function CareProcess() {
               <span className="text-[#1a6fa8]">Udhëtimi Juaj</span> drejt<br />
               Kujdesit më të Mirë Fillon Këtu
             </h2>
-            <p className="text-gray-400 text-base leading-relaxed max-w-md">
+            <p className="text-gray-400 text-base leading-relaxed max-w-md mb-8">
               Ndjekim një qasje të strukturuar dhe të fokusuar tek pacienti, për të siguruar
               që çdo hap i udhëtimit tuaj shëndetësor të jetë i thjeshtë, i qartë dhe efektiv.
             </p>
+
+            <Image
+              src={staffImg}
+              alt="Ekipi mjekësor Liribes"
+              width={520}
+              height={340}
+              className="w-full h-auto object-contain"
+            />
           </div>
 
           {/* ── Right — accordion cards ── */}
@@ -75,16 +85,6 @@ export default function CareProcess() {
                 >
                   {step.number}
                 </span>
-
-                {/* Dot indicator — visible only on active */}
-                <div
-                  className={[
-                    'absolute left-7 transition-all duration-500',
-                    active === i ? 'bottom-[78px] opacity-100' : 'bottom-4 opacity-0',
-                  ].join(' ')}
-                >
-                  <span className="block w-4 h-4 rounded-full border-2 border-blue-300 bg-blue-500/40" />
-                </div>
 
                 {/* Text — slides in when active */}
                 <div
