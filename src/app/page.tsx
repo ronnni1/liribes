@@ -1,7 +1,7 @@
 import Image from 'next/image';
 import Link from 'next/link';
 import { Stethoscope, BadgeCheck, Award, HeartHandshake, Droplets, ShieldCheck } from 'lucide-react';
-import bannerImg from '@/assets/banner.png';
+import bannerImg from '@/assets/liribes.jpeg';
 import homeImg from '@/assets/home_img.png';
 import benefitsImg from '@/assets/liribes_benefits.png';
 import benefitsImg1 from '@/assets/liribes_benefits1.png';
@@ -47,7 +47,7 @@ export default function Home() {
           alt="Banner"
           fill
           className="object-cover"
-          style={{ objectPosition: '50% 15%' }}
+          style={{ objectPosition: '50% 55%' }}
           priority
         />
         <div className="absolute inset-0 bg-[#1a6fa8]/65" />
