@@ -97,7 +97,7 @@ export default function Home() {
             <div className="w-full lg:w-1/2 flex justify-center">
               <Image
                 src={homeImg}
-                alt="Rreth klinikës"
+                alt="Rreth ordinancës"
                 width={480}
                 height={500}
                 className="object-contain w-full h-auto max-w-[480px]"

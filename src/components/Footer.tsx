@@ -3,7 +3,7 @@ import { MapPin, Phone, Mail } from 'lucide-react';
 
 const quickLinks = [
   { label: 'Ballina', href: '/' },
-  { label: 'Rreth Klinikës', href: '/rreth-nesh' },
+  { label: 'Rreth Ordinancës', href: '/rreth-nesh' },
   { label: 'Shërbimet', href: '/sherbimet' },
   { label: 'Ekipi', href: '/ekipi' },
   { label: 'Lajmet', href: '/lajmet' },

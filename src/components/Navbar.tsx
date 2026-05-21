@@ -1,21 +1,33 @@
 'use client';
 
-import { useState } from 'react';
+import { useState, useEffect, useRef } from 'react';
 import Link from 'next/link';
 import { ChevronDown, Menu, X } from 'lucide-react';
 
 const navLinks = [
   { label: 'Ballina', href: '/', dropdown: false },
-  { label: 'Rreth Klinikës', href: '/rreth-nesh', dropdown: false },
+  { label: 'Rreth Ordinancës', href: '/rreth-nesh', dropdown: false },
   { label: 'Shërbimet', href: '/sherbimet', dropdown: true },
   { label: 'Na Kontaktoni', href: '/kontakt', dropdown: false },
 ];
 
 export default function Navbar() {
   const [mobileOpen, setMobileOpen] = useState(false);
+  const [visible, setVisible] = useState(true);
+  const lastScrollY = useRef(0);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      const currentY = window.scrollY;
+      setVisible(currentY < lastScrollY.current || currentY < 10);
+      lastScrollY.current = currentY;
+    };
+    window.addEventListener('scroll', handleScroll, { passive: true });
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
 
   return (
-    <nav className="bg-[#1a3557] text-white">
+    <nav className={`fixed top-0 left-0 right-0 z-50 bg-[#1a3557] text-white transition-transform duration-300 ${visible ? 'translate-y-0' : '-translate-y-full'}`}>
       <div className="max-w-7xl mx-auto px-6">
         <div className="flex items-center justify-between h-[70px]">
 
