@@ -1,6 +1,5 @@
 import Image from 'next/image';
 import Link from 'next/link';
-import { Mail, Phone } from 'lucide-react';
 import m1 from '@/assets/member1.jpg';
 import m2 from '@/assets/member2.jpg';
 import m3 from '@/assets/member3.jpg';
@@ -50,15 +49,6 @@ export default function DoctorTeam() {
                 fill
                 className="object-cover object-top"
               />
-              {/* Hover overlay */}
-              <div className="absolute inset-0 bg-[#1a3557]/70 flex items-center justify-center gap-3 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-                <a href="#" className="w-10 h-10 rounded-full bg-white/20 hover:bg-white/40 flex items-center justify-center transition-colors">
-                  <Mail size={18} className="text-white" />
-                </a>
-                <a href="#" className="w-10 h-10 rounded-full bg-white/20 hover:bg-white/40 flex items-center justify-center transition-colors">
-                  <Phone size={18} className="text-white" />
-                </a>
-              </div>
             </div>
 
             <h3 className="font-bold text-gray-900 text-base">{m.name}</h3>

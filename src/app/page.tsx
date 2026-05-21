@@ -7,6 +7,7 @@ import benefitsImg from '@/assets/liribes_benefits.png';
 import benefitsImg1 from '@/assets/liribes_benefits1.png';
 import CareProcess from '@/components/CareProcess';
 import DoctorTeam from '@/components/DoctorTeam';
+import LatestNews from '@/components/LatestNews';
 
 const benefits = [
   {
@@ -88,7 +89,7 @@ export default function Home() {
       <section className="relative overflow-hidden bg-white py-16 md:py-24">
         <div className="absolute inset-0 flex items-center justify-end pr-8 pointer-events-none select-none">
           <span className="text-[80px] md:text-[120px] font-extrabold text-gray-100 leading-none tracking-widest">
-            Shëndeti
+            Rreth Nesh
           </span>
         </div>
         <div className="relative z-10 max-w-7xl mx-auto px-6">
@@ -108,9 +109,7 @@ export default function Home() {
                 Shërbime për çdo nevojë shëndetësore.
               </h2>
               <p className="text-gray-500 text-base md:text-lg leading-relaxed mb-8">
-                Klinika jonë private ofron kujdes shëndetësor të personalizuar për të gjithë
-                familjen. Me mjekë të specializuar dhe pajisje moderne, jemi të përkushtuar
-                ndaj shëndetit tuaj në çdo hap të rrugës.
+                Ordinanca jonë udhëhiqet nga <strong className="text-gray-700">Dr. Naser Fetahu</strong>, mjek familjar me mbi 40 vjet përvojë pune, dhe <strong className="text-gray-700">Dr. Greta Fetahu</strong>, bashkëshortja e tij. Traditën e familjes e vazhdon <strong className="text-gray-700">Dr. Besart Fetahu</strong>, i cili praktikon tashmë 2 vite duke sjellë energji dhe njohuri të reja në shërbim të pacientëve.
               </p>
               <Link
                 href="/sherbimet"
@@ -302,6 +301,9 @@ export default function Home() {
 
       {/* ── Doctor Team Section ── */}
       <DoctorTeam />
+
+      {/* ── Latest News Section ── */}
+      <LatestNews />
 
     </main>
   );
