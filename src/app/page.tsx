@@ -5,6 +5,7 @@ import bannerImg from '@/assets/banner.png';
 import homeImg from '@/assets/home_img.png';
 import benefitsImg from '@/assets/liribes_benefits.png';
 import benefitsImg1 from '@/assets/liribes_benefits1.png';
+import CareProcess from '@/components/CareProcess';
 
 const benefits = [
   {
@@ -122,16 +123,30 @@ export default function Home() {
       </section>
 
       {/* ── Benefits Section ── */}
-      <section className="relative overflow-hidden bg-white py-16 md:py-24">
+      <section className="relative overflow-hidden bg-[#f0f6fc] py-16 md:py-24 pb-32 md:pb-44">
 
         {/* Background blobs */}
-        <div className="absolute top-0 left-1/4 w-[520px] h-[480px] rounded-full bg-slate-50 opacity-80 -translate-y-1/4 pointer-events-none" />
-        <div className="absolute bottom-0 right-0 w-[300px] h-[300px] rounded-full bg-slate-50 opacity-60 translate-x-1/3 translate-y-1/3 pointer-events-none" />
+        <div className="absolute top-0 left-1/4 w-[520px] h-[480px] rounded-full bg-white/60 opacity-80 -translate-y-1/4 pointer-events-none" />
+        <div className="absolute bottom-0 right-0 w-[300px] h-[300px] rounded-full bg-white/60 opacity-60 translate-x-1/3 translate-y-1/3 pointer-events-none" />
+
+        {/* Wave bottom */}
+        <div className="absolute bottom-0 left-0 right-0">
+          <svg
+            viewBox="0 0 1440 200"
+            preserveAspectRatio="none"
+            className="w-full block h-[100px] sm:h-[130px] md:h-[160px] lg:h-[200px]"
+          >
+            <path
+              d="M0,185 C150,165 300,95 500,65 C670,38 750,125 920,115 C1090,105 1150,42 1350,38 C1410,36 1435,37 1440,37 L1440,200 L0,200 Z"
+              fill="white"
+            />
+          </svg>
+        </div>
 
         {/* Watermark */}
         <div className="absolute top-8 left-0 pointer-events-none select-none overflow-hidden">
           <span className="text-[100px] md:text-[150px] font-extrabold text-gray-100 leading-none">
-            Benefit
+            Liribes
           </span>
         </div>
 
@@ -187,6 +202,9 @@ export default function Home() {
           </div>
         </div>
       </section>
+
+      {/* ── Care Process Section ── */}
+      <CareProcess />
 
     </main>
   );
