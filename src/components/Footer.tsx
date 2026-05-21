@@ -23,19 +23,8 @@ export default function Footer() {
   return (
     <footer className="relative bg-[#0f2340]">
 
-      {/* Top wave */}
-      <div className="absolute top-0 left-0 right-0">
-        <svg viewBox="0 0 1440 200" preserveAspectRatio="none"
-          className="w-full block h-[80px] sm:h-[110px] md:h-[150px]">
-          <path
-            d="M0,15 C150,35 300,105 500,135 C670,162 750,75 920,85 C1090,95 1150,158 1350,162 C1410,164 1435,163 1440,163 L1440,0 L0,0 Z"
-            fill="white"
-          />
-        </svg>
-      </div>
-
       {/* Main content */}
-      <div className="relative z-10 pt-[120px] md:pt-[170px] pb-10 max-w-7xl mx-auto px-6">
+      <div className="relative z-10 pt-12 pb-10 max-w-7xl mx-auto px-6">
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-10 mb-12">
 
           {/* Col 1 — brand */}

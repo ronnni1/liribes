@@ -7,7 +7,7 @@ import { ChevronDown, Menu, X } from 'lucide-react';
 const navLinks = [
   { label: 'Ballina', href: '/', dropdown: false },
   { label: 'Rreth Ordinancës', href: '/rreth-nesh', dropdown: false },
-  { label: 'Shërbimet', href: '/sherbimet', dropdown: true },
+  { label: 'Shërbimet', href: '/sherbimet', dropdown: false },
   { label: 'Na Kontaktoni', href: '/kontakt', dropdown: false },
 ];
 
