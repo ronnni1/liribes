@@ -111,7 +111,7 @@ export default function Navbar() {
               <img src="/ikona.png" alt="Admin" className="w-4 h-4 object-contain" />
             </a>
             <Link
-              href="/takim"
+              href="/kontakt"
               className="flex items-center bg-white text-[#1a3557] font-bold text-sm px-6 py-2.5 rounded-full hover:bg-gray-100 transition-colors flex-shrink-0"
             >
               {t.nav.bookBtn}
@@ -158,7 +158,7 @@ export default function Navbar() {
           </div>
 
           <Link
-            href="/takim"
+            href="/kontakt"
             className="mt-1 text-center bg-white text-[#1a3557] font-bold text-sm px-6 py-2.5 rounded-full"
             onClick={() => setMobileOpen(false)}
           >

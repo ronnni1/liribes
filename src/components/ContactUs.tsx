@@ -25,8 +25,13 @@ function isBlocked(dateStr: string) {
   return publicHolidays.includes(md);
 }
 
-function today() {
-  return new Date().toISOString().split('T')[0];
+function minDate() {
+  const now = new Date();
+  const isPastClosing = now.getHours() >= 18;
+  if (isPastClosing) {
+    now.setDate(now.getDate() + 1);
+  }
+  return now.toISOString().split('T')[0];
 }
 
 export default function ContactUs() {
@@ -131,7 +136,7 @@ export default function ContactUs() {
           <div>
             <h2 className="text-2xl font-bold text-[#1a3557] mb-1">{t.contact.infoTitle}</h2>
             <div className="w-12 h-1 rounded-full bg-[#1a6ea8] mb-6" />
-            <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+            <div className="flex flex-col gap-3">
               {infoItems.map(({ icon: Icon, label, value, color }) => (
                 <div key={label} className="flex items-start gap-4 p-4 rounded-2xl border border-gray-100 shadow-sm hover:shadow-md transition-shadow bg-white">
                   <div className={`${color} text-white p-3 rounded-xl flex-shrink-0`}>
@@ -139,7 +144,7 @@ export default function ContactUs() {
                   </div>
                   <div>
                     <p className="text-xs font-semibold text-gray-400 uppercase tracking-wide">{label}</p>
-                    <p className="text-sm font-medium text-gray-800 mt-0.5 break-all">{value}</p>
+                    <p className="text-sm font-medium text-gray-800 mt-0.5">{value}</p>
                   </div>
                 </div>
               ))}
@@ -230,7 +235,7 @@ export default function ContactUs() {
                   <p className="text-xs font-semibold text-gray-500 uppercase tracking-wide mb-2">{t.contact.dateLabel}</p>
                   <div className="relative">
                     <CalendarCheck size={16} className="absolute left-4 top-1/2 -translate-y-1/2 text-gray-400 pointer-events-none" />
-                    <input type="date" min={today()} value={date} onChange={(e) => handleDate(e.target.value)}
+                    <input type="date" min={minDate()} value={date} onChange={(e) => handleDate(e.target.value)}
                       className={`w-full pl-10 pr-4 py-3 rounded-xl border text-sm text-gray-800 focus:outline-none focus:ring-2 transition ${
                         dateError ? 'border-red-400 focus:border-red-400 focus:ring-red-200' : 'border-gray-200 focus:border-[#1a6ea8] focus:ring-[#1a6ea8]/20'
                       }`} />
