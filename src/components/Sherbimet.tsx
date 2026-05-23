@@ -3,7 +3,7 @@
 import Image from 'next/image';
 import Link from 'next/link';
 import { Stethoscope, Syringe, Bandage, Ear, House, Activity, CalendarCheck } from 'lucide-react';
-import stetoskopi from '@/assets/servicesbanner.jpg';
+import stetoskopi from '@/assets/servicesbanner.webp';
 import { useLanguage } from '@/contexts/LanguageContext';
 
 const icons = [Stethoscope, Syringe, Bandage, Ear, House, Activity];

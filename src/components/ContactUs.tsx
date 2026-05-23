@@ -3,8 +3,8 @@
 import Image from 'next/image';
 import { useState, useEffect } from 'react';
 import { Phone, Mail, MapPin, Clock, CalendarCheck, User, CheckCircle2 } from 'lucide-react';
-import contactBanner from '@/assets/contactbanner.png';
-import contactUsBanner from '@/assets/contactusbanner.png';
+import contactBanner from '@/assets/contactbanner.webp';
+import contactUsBanner from '@/assets/contactusbanner.webp';
 import { useLanguage } from '@/contexts/LanguageContext';
 
 const doctors = ['Dr. Naser Fetahu', 'Dr. Besart Fetahu'];

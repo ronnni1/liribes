@@ -2,13 +2,13 @@
 
 import Image from 'next/image';
 import { MapPin, Armchair, CalendarDays, Building2 } from 'lucide-react';
-import heroBanner from '@/assets/ordinanca.png';
-import room1 from '@/assets/liribes_benefits.png';
-import room2 from '@/assets/liribes_benefits1.png';
+import heroBanner from '@/assets/ordinanca.webp';
+import room1 from '@/assets/liribes_benefits.webp';
+import room2 from '@/assets/liribes_benefits1.webp';
 import room3 from '@/assets/stetoskopi.webp';
-import room4 from '@/assets/contactbanner.png';
+import room4 from '@/assets/contactbanner.webp';
 import room5 from '@/assets/earcleaning.webp';
-import room6 from '@/assets/servicesbanner.jpg';
+import room6 from '@/assets/servicesbanner.webp';
 import { useLanguage } from '@/contexts/LanguageContext';
 
 const statIcons = [CalendarDays, MapPin, Armchair, Building2];

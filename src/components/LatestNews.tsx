@@ -3,7 +3,7 @@
 import Image, { StaticImageData } from 'next/image';
 import { CalendarDays, Stethoscope } from 'lucide-react';
 import stetoskopiImg from '@/assets/stetoskopi.webp';
-import article2Img from '@/assets/farmaci.jpg';
+import article2Img from '@/assets/farmaci.webp';
 import { useLanguage } from '@/contexts/LanguageContext';
 
 const postImages: (StaticImageData | null)[] = [stetoskopiImg, article2Img];

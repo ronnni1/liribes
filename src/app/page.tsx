@@ -3,10 +3,10 @@
 import Image from 'next/image';
 import Link from 'next/link';
 import { Stethoscope, BadgeCheck, Award, HeartHandshake, Syringe, Bandage } from 'lucide-react';
-import bannerImg from '@/assets/liribes.jpeg';
-import homeImg from '@/assets/home_img.png';
-import benefitsImg from '@/assets/liribes_benefits.png';
-import benefitsImg1 from '@/assets/liribes_benefits1.png';
+import bannerImg from '@/assets/liribes.webp';
+import homeImg from '@/assets/home_img.webp';
+import benefitsImg from '@/assets/liribes_benefits.webp';
+import benefitsImg1 from '@/assets/liribes_benefits1.webp';
 import CareProcess from '@/components/CareProcess';
 import DoctorTeam from '@/components/DoctorTeam';
 import LatestNews from '@/components/LatestNews';

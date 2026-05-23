@@ -2,7 +2,7 @@
 
 import { useState } from 'react';
 import Image from 'next/image';
-import staffImg from '@/assets/staff.png';
+import staffImg from '@/assets/staff.webp';
 import { useLanguage } from '@/contexts/LanguageContext';
 
 const bgs = [

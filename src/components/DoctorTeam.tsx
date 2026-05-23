@@ -2,10 +2,10 @@
 
 import Image from 'next/image';
 
-import m1 from '@/assets/member1.jpg';
-import m2 from '@/assets/member2.jpg';
-import m3 from '@/assets/member3.jpg';
-import m4 from '@/assets/member4.jpg';
+import m1 from '@/assets/member1.webp';
+import m2 from '@/assets/member2.webp';
+import m3 from '@/assets/member3.webp';
+import m4 from '@/assets/member4.webp';
 import { useLanguage } from '@/contexts/LanguageContext';
 
 const memberImgs = [m1, m2, m3, m4];
