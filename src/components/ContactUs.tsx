@@ -89,6 +89,7 @@ export default function ContactUs() {
         setSubmitError(t.contact.submitErrorMsg);
       } else {
         setSuccess(true);
+        window.scrollTo({ top: 0, behavior: 'smooth' });
       }
     } catch {
       setSubmitError(t.contact.submitErrorMsg);

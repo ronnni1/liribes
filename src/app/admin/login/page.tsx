@@ -12,7 +12,7 @@ export default function AdminLogin() {
   const [loading, setLoading] = useState(false);
   const [showPassword, setShowPassword] = useState(false);
 
-  async function handleSubmit(e: React.FormEvent) {
+  async function handleSubmit(e: React.FormEvent<HTMLFormElement>) {
     e.preventDefault();
     setLoading(true);
     setError('');
@@ -42,8 +42,13 @@ export default function AdminLogin() {
           <div className="bg-[#1a3557] text-white p-4 rounded-2xl mb-4">
             <Lock size={28} />
           </div>
-          <h1 className="text-2xl font-bold text-[#1a3557]">Admin</h1>
+          <h1 className="text-2xl font-bold text-[#1a3557]">Hyrje për Stafin</h1>
           <p className="text-gray-400 text-sm mt-1">Ordinanca Liribes</p>
+        </div>
+
+        <div className="bg-amber-50 border border-amber-200 rounded-xl px-4 py-3 mb-4 text-center">
+          <p className="text-xs text-amber-700 font-medium">Kjo faqe është vetëm për stafin e ordinancës.</p>
+          <p className="text-xs text-amber-600 mt-0.5">Nëse jeni pacient, ju lutem kthehuni në faqen mbrapa.</p>
         </div>
 
         <form onSubmit={handleSubmit} className="flex flex-col gap-4">

@@ -2,7 +2,7 @@
 
 import Image, { StaticImageData } from 'next/image';
 import { CalendarDays, Stethoscope } from 'lucide-react';
-import stetoskopiImg from '@/assets/stetoskopi.webp';
+import stetoskopiImg from '@/assets/orari_ri.webp';
 import article2Img from '@/assets/farmaci.webp';
 import { useLanguage } from '@/contexts/LanguageContext';
 

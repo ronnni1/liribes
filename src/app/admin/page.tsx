@@ -2,7 +2,7 @@
 
 import { useEffect, useState } from 'react';
 import { useRouter } from 'next/navigation';
-import { CalendarDays, Clock, User, Phone, Stethoscope, Trash2, LogOut, RefreshCw } from 'lucide-react';
+import { CalendarDays, Clock, User, Phone, Stethoscope, LogOut, RefreshCw, XCircle, MessageCircle } from 'lucide-react';
 
 type Booking = {
   id: string;
@@ -22,12 +22,22 @@ function statusBadge(date: string) {
   return { label: 'Kaluar', cls: 'bg-gray-100 text-gray-500' };
 }
 
+function formatPhone(phone: string) {
+  const digits = phone.replace(/\D/g, '');
+  if (digits.startsWith('0')) return '383' + digits.slice(1);
+  return digits;
+}
+
+type RefuzeModal = { booking: Booking; reason: string };
+
 export default function AdminDashboard() {
   const router = useRouter();
   const [bookings, setBookings] = useState<Booking[]>([]);
   const [loading, setLoading] = useState(true);
   const [filter, setFilter] = useState<'all' | 'upcoming' | 'today' | 'past'>('upcoming');
   const [doctorFilter, setDoctorFilter] = useState('Dr. Naser Fetahu');
+  const [refuzeModal, setRefuzeModal] = useState<RefuzeModal | null>(null);
+  const [deleting, setDeleting] = useState(false);
 
   async function fetchBookings() {
     setLoading(true);
@@ -40,14 +50,24 @@ export default function AdminDashboard() {
 
   useEffect(() => { fetchBookings(); }, []);
 
-  async function deleteBooking(id: string) {
-    if (!confirm('A jeni i sigurt që doni ta fshini këtë termin?')) return;
+  async function confirmRefuze() {
+    if (!refuzeModal) return;
+    setDeleting(true);
+    const { booking, reason } = refuzeModal;
+
     await fetch('/api/admin/bookings', {
       method: 'DELETE',
       headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({ id }),
+      body: JSON.stringify({ id: booking.id }),
     });
-    setBookings(prev => prev.filter(b => b.id !== id));
+    setBookings(prev => prev.filter(b => b.id !== booking.id));
+
+    const msg = `Pershendetje ${booking.name},\n\nTermini juaj në Ordinancën Liribes për datën *${booking.date}* në orën *${booking.time}* është anuluar.\n\nArsyeja: ${reason || 'Nuk është specifikuar'}\n\nJu faleminderit për mirëkuptim.\n— Ordinanca Liribes`;
+    const phone = formatPhone(booking.phone);
+    window.open(`https://wa.me/${phone}?text=${encodeURIComponent(msg)}`, '_blank');
+
+    setRefuzeModal(null);
+    setDeleting(false);
   }
 
   async function logout() {
@@ -186,9 +206,11 @@ export default function AdminDashboard() {
                           </div>
                         </td>
                         <td className="px-5 py-4">
-                          <button onClick={() => deleteBooking(b.id)}
-                            className="text-gray-300 hover:text-red-500 transition-colors">
-                            <Trash2 size={16} />
+                          <button
+                            onClick={() => setRefuzeModal({ booking: b, reason: '' })}
+                            title="Refuzo me WhatsApp"
+                            className="flex items-center gap-1 text-xs font-medium text-red-400 hover:text-red-600 border border-red-200 hover:border-red-400 px-2.5 py-1.5 rounded-lg transition-all">
+                            <XCircle size={13} /> Refuzo
                           </button>
                         </td>
                       </tr>
@@ -200,6 +222,52 @@ export default function AdminDashboard() {
           )}
         </div>
       </div>
+
+      {/* Refuze Modal */}
+      {refuzeModal && (
+        <div className="fixed inset-0 bg-black/40 backdrop-blur-sm flex items-center justify-center z-50 px-4">
+          <div className="bg-white rounded-2xl shadow-2xl w-full max-w-md p-6">
+            <div className="flex items-center gap-3 mb-4">
+              <div className="w-10 h-10 rounded-full bg-red-100 flex items-center justify-center">
+                <XCircle size={20} className="text-red-500" />
+              </div>
+              <div>
+                <h3 className="font-bold text-[#1a3557] text-base">Refuzo Terminin</h3>
+                <p className="text-xs text-gray-400">{refuzeModal.booking.name} · {refuzeModal.booking.date} {refuzeModal.booking.time}</p>
+              </div>
+            </div>
+
+            <p className="text-xs text-gray-500 mb-2">Arsyeja e refuzimit (do të dërgohet në WhatsApp):</p>
+            <textarea
+              rows={3}
+              placeholder="p.sh. Doktori është i zënë atë ditë..."
+              value={refuzeModal.reason}
+              onChange={e => setRefuzeModal(m => m ? { ...m, reason: e.target.value } : m)}
+              className="w-full border border-gray-200 rounded-xl px-4 py-3 text-sm text-gray-800 placeholder-gray-400 focus:outline-none focus:border-[#1a6ea8] focus:ring-2 focus:ring-[#1a6ea8]/20 resize-none transition"
+            />
+
+            <div className="mt-2 p-3 bg-gray-50 rounded-xl border border-gray-100 text-xs text-gray-500 leading-relaxed">
+              <span className="font-semibold text-gray-600">Mesazhi që do të dërgohet:</span><br />
+              Pershendetje <b>{refuzeModal.booking.name}</b>, termini juaj për datën <b>{refuzeModal.booking.date}</b> në orën <b>{refuzeModal.booking.time}</b> është anuluar. Arsyeja: <i>{refuzeModal.reason || '—'}</i>
+            </div>
+
+            <div className="flex gap-3 mt-5">
+              <button
+                onClick={() => setRefuzeModal(null)}
+                className="flex-1 py-2.5 rounded-xl border border-gray-200 text-sm text-gray-500 hover:bg-gray-50 transition">
+                Anulo
+              </button>
+              <button
+                onClick={confirmRefuze}
+                disabled={deleting}
+                className="flex-1 flex items-center justify-center gap-2 py-2.5 rounded-xl bg-[#25D366] hover:bg-[#1ebe5a] text-white text-sm font-semibold transition disabled:opacity-50">
+                <MessageCircle size={15} />
+                {deleting ? 'Duke dërguar...' : 'Fshi & Dërgo WhatsApp'}
+              </button>
+            </div>
+          </div>
+        </div>
+      )}
     </div>
   );
 }
