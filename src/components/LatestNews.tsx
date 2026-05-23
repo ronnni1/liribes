@@ -1,17 +1,15 @@
 'use client';
 
 import Image, { StaticImageData } from 'next/image';
-import Link from 'next/link';
-import { ArrowRight, CalendarDays, Stethoscope } from 'lucide-react';
+import { CalendarDays, Stethoscope } from 'lucide-react';
 import stetoskopiImg from '@/assets/stetoskopi.webp';
-import article2Img from '@/assets/article2.jpg';
+import article2Img from '@/assets/farmaci.jpg';
 import { useLanguage } from '@/contexts/LanguageContext';
 
 const postImages: (StaticImageData | null)[] = [stetoskopiImg, article2Img];
 const postIcons = [CalendarDays, Stethoscope];
 const postGradients = ['from-[#1a3557] via-[#1a4a6e] to-[#1a6fa8]', 'from-slate-700 via-teal-800 to-teal-600'];
 const postTagColors = ['text-[#1a6fa8] bg-blue-50', 'text-teal-600 bg-teal-50'];
-const postHrefs = ['/lajmet/orare-te-reja', '/lajmet/sherbime-te-reja'];
 
 export default function LatestNews() {
   const { t } = useLanguage();
@@ -44,7 +42,7 @@ export default function LatestNews() {
             <div key={i} className="flex flex-col rounded-2xl overflow-hidden shadow-md hover:shadow-xl transition-shadow duration-300 bg-white border border-gray-100">
               <div className="relative h-[180px]">
                 {postImages[i] ? (
-                  <Image src={postImages[i]!} alt={p.title} fill className="object-cover" />
+                  <Image src={postImages[i]!} alt={p.title} fill className={i === 1 ? 'object-contain p-4' : 'object-cover'} />
                 ) : (
                   <div className={`w-full h-full bg-gradient-to-br ${postGradients[i]} flex items-center justify-center`}>
                     <div className="w-14 h-14 rounded-2xl bg-white/20 flex items-center justify-center">
@@ -56,13 +54,10 @@ export default function LatestNews() {
               <div className="flex flex-col flex-1 p-6">
                 <div className="flex items-center gap-3 mb-3">
                   <span className={`text-xs font-semibold px-2.5 py-1 rounded-full ${postTagColors[i]}`}>{p.tag}</span>
-                  <span className="text-gray-400 text-xs">{p.date}</span>
+                  {p.date && <span className="text-gray-400 text-xs">{p.date}</span>}
                 </div>
                 <h3 className="font-bold text-gray-900 text-base leading-snug mb-2">{p.title}</h3>
                 <p className="text-gray-400 text-sm leading-relaxed flex-1 mb-5">{p.desc}</p>
-                <Link href={postHrefs[i]} className="inline-flex items-center gap-1.5 text-[#1a6fa8] font-semibold text-sm hover:gap-2.5 transition-all duration-200">
-                  {t.news.readMore} <ArrowRight size={15} />
-                </Link>
               </div>
             </div>
           );

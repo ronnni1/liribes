@@ -1,7 +1,7 @@
 'use client';
 
 import Image from 'next/image';
-import Link from 'next/link';
+
 import m1 from '@/assets/member1.jpg';
 import m2 from '@/assets/member2.jpg';
 import m3 from '@/assets/member3.jpg';
@@ -47,13 +47,8 @@ export default function DoctorTeam() {
         ))}
       </div>
 
-      <div className="relative z-10 flex justify-center mt-14 px-6">
-        <Link href="/ekipi" className="bg-[#1a3557] text-white font-semibold px-8 py-3.5 rounded-full hover:bg-[#1a6fa8] transition-colors">
-          {t.team.btn}
-        </Link>
-      </div>
 
-      <div className="absolute bottom-0 left-0 right-0">
+      <div className="mt-16">
         <svg viewBox="0 0 1440 200" preserveAspectRatio="none" className="w-full block h-[80px] sm:h-[110px] md:h-[150px]">
           <path d="M0,185 C150,165 300,95 500,65 C670,38 750,125 920,115 C1090,105 1150,42 1350,38 C1410,36 1435,37 1440,37 L1440,200 L0,200 Z" fill="#1a6fa8" />
         </svg>
