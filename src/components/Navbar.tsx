@@ -32,18 +32,13 @@ export default function Navbar() {
         <div className="flex items-center justify-between h-[70px]">
 
           {/* Logo */}
-          <Link href="/" className="flex items-center gap-2 flex-shrink-0">
-            <svg width="36" height="36" viewBox="0 0 36 36" fill="none" xmlns="http://www.w3.org/2000/svg">
-              <path
-                d="M18 31s-13-8.5-13-17A8 8 0 0 1 18 8a8 8 0 0 1 13 6c0 8.5-13 17-13 17z"
-                stroke="white"
-                strokeWidth="2"
-                fill="none"
-              />
-              <line x1="18" y1="13" x2="18" y2="23" stroke="white" strokeWidth="2" strokeLinecap="round" />
-              <line x1="13" y1="18" x2="23" y2="18" stroke="white" strokeWidth="2" strokeLinecap="round" />
-            </svg>
-            <span className="text-xl font-bold tracking-wide">Liribes</span>
+          <Link href="/" className="flex items-center flex-shrink-0">
+            {/* eslint-disable-next-line @next/next/no-img-element */}
+            <img
+              src="/8.png"
+              alt="Liribes"
+              className="h-24 w-auto object-contain"
+            />
           </Link>
 
           {/* Desktop links */}

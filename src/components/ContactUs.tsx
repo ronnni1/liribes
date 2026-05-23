@@ -28,7 +28,7 @@ const infoItems = [
   {
     icon: Clock,
     label: 'Orari',
-    value: 'E Hënë – E Premte, 08:00 – 17:00',
+    value: 'E Hënë – E Shtunë, 10:00 – 18:00',
     color: 'bg-[#1a6ea8]',
   },
 ];
@@ -41,7 +41,7 @@ function isBlocked(dateStr: string) {
   if (!dateStr) return false;
   const d = new Date(dateStr);
   const day = d.getUTCDay();
-  if (day === 0 || day === 6) return true;
+  if (day === 0) return true;
   const md = dateStr.slice(5); // MM-DD
   return publicHolidays.includes(md);
 }
@@ -208,7 +208,7 @@ export default function ContactUs() {
               {dateError && (
                 <p className="mt-1.5 text-xs text-red-500">{dateError}</p>
               )}
-              <p className="mt-1.5 text-xs text-gray-400">E hëna – e premtja · 08:00–17:00</p>
+              <p className="mt-1.5 text-xs text-gray-400">E hëna – e shtuna · 10:00–18:00</p>
             </div>
 
             {/* Message */}

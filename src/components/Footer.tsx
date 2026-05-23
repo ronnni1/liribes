@@ -30,14 +30,8 @@ export default function Footer() {
           {/* Col 1 — brand */}
           <div>
             <div className="flex items-center gap-2.5 mb-4">
-              <svg width="32" height="32" viewBox="0 0 40 40" fill="none">
-                <circle cx="20" cy="20" r="20" fill="#1a6fa8" />
-                <path d="M20 10 C14 10 10 14 10 19 C10 26 20 32 20 32 C20 32 30 26 30 19 C30 14 26 10 20 10Z"
-                  fill="white" fillOpacity="0.9" />
-                <rect x="18" y="14" width="4" height="12" rx="2" fill="#1a6fa8" />
-                <rect x="14" y="18" width="12" height="4" rx="2" fill="#1a6fa8" />
-              </svg>
-              <span className="text-white font-bold text-xl tracking-wide">Liribes</span>
+              {/* eslint-disable-next-line @next/next/no-img-element */}
+              <img src="/8.png" alt="Liribes" className="h-20 w-auto object-contain" />
             </div>
             <p className="text-white/50 text-sm leading-relaxed mb-6">
               Ordinancë private për mjekësi familjare. Kujdes shëndetësor cilësor për familjen tuaj.

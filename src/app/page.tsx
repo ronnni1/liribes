@@ -1,6 +1,6 @@
 import Image from 'next/image';
 import Link from 'next/link';
-import { Stethoscope, BadgeCheck, Award, HeartHandshake, Droplets, ShieldCheck } from 'lucide-react';
+import { Stethoscope, BadgeCheck, Award, HeartHandshake, Syringe, Bandage } from 'lucide-react';
 import bannerImg from '@/assets/liribes.jpeg';
 import homeImg from '@/assets/home_img.png';
 import benefitsImg from '@/assets/liribes_benefits.png';
@@ -8,6 +8,7 @@ import benefitsImg1 from '@/assets/liribes_benefits1.png';
 import CareProcess from '@/components/CareProcess';
 import DoctorTeam from '@/components/DoctorTeam';
 import LatestNews from '@/components/LatestNews';
+import FAQ from '@/components/FAQ';
 
 const benefits = [
   {
@@ -69,7 +70,7 @@ export default function Home() {
         <div className="relative z-10 max-w-7xl mx-auto px-6 py-16 w-full">
           <div className="max-w-lg">
             <h1 className="text-4xl md:text-5xl font-bold text-white leading-tight mb-4">
-              Gjeni Mjekun &<br />Rezervoni Takim
+              Shëndeti Juaj,<br />Prioriteti Ynë
             </h1>
             <p className="text-white/85 text-base md:text-lg mb-8 leading-relaxed">
               Që nga dita e parë e hapjes, ekipi ynë është fokusuar në ofrimin e shërbimeve
@@ -79,7 +80,7 @@ export default function Home() {
               href="/sherbimet"
               className="inline-flex items-center bg-[#1a3557] text-white font-semibold px-8 py-3.5 rounded-full hover:bg-[#15294a] transition-colors"
             >
-              Kërko Specialitetin
+              Shiko Shërbimet
             </Link>
           </div>
         </div>
@@ -270,7 +271,7 @@ export default function Home() {
 
             <div className="group bg-white/5 border border-white/10 rounded-2xl p-8 flex flex-col items-center text-center hover:bg-white hover:border-transparent hover:shadow-2xl transition-all duration-300 cursor-default">
               <div className="w-16 h-16 rounded-2xl bg-teal-500/20 group-hover:bg-teal-100 flex items-center justify-center mb-5 transition-colors duration-300">
-                <Droplets size={30} className="text-teal-300 group-hover:text-teal-600 transition-colors duration-300" />
+                <Syringe size={30} className="text-teal-300 group-hover:text-teal-600 transition-colors duration-300" />
               </div>
               <h3 className="font-bold text-white group-hover:text-gray-900 text-lg mb-2 transition-colors duration-300">Injeksione dhe Infuzione</h3>
               <p className="text-white/50 group-hover:text-gray-400 text-sm leading-relaxed transition-colors duration-300">
@@ -280,7 +281,7 @@ export default function Home() {
 
             <div className="group bg-white/5 border border-white/10 rounded-2xl p-8 flex flex-col items-center text-center hover:bg-white hover:border-transparent hover:shadow-2xl transition-all duration-300 cursor-default">
               <div className="w-16 h-16 rounded-2xl bg-rose-500/20 group-hover:bg-rose-100 flex items-center justify-center mb-5 transition-colors duration-300">
-                <ShieldCheck size={30} className="text-rose-300 group-hover:text-rose-500 transition-colors duration-300" />
+                <Bandage size={30} className="text-rose-300 group-hover:text-rose-500 transition-colors duration-300" />
               </div>
               <h3 className="font-bold text-white group-hover:text-gray-900 text-lg mb-2 transition-colors duration-300">Pastrim dhe Fashim Plagësh</h3>
               <p className="text-white/50 group-hover:text-gray-400 text-sm leading-relaxed transition-colors duration-300">
@@ -304,6 +305,9 @@ export default function Home() {
 
       {/* ── Latest News Section ── */}
       <LatestNews />
+
+      {/* ── FAQ Section ── */}
+      <FAQ />
 
     </main>
   );
