@@ -2,35 +2,10 @@
 
 import { useState } from 'react';
 import { ChevronDown } from 'lucide-react';
-
-const faqs = [
-  {
-    q: 'Si mund të lë termin?',
-    a: 'Mund të lini termin duke na kontaktuar direkt nëpërmjet faqes së kontaktit, duke telefonuar në numrin tonë, ose duke vizituar ordinancën gjatë orarit të punës.',
-  },
-  {
-    q: 'Cili është orari i punës?',
-    a: 'Ordinanca punon nga e hëna deri të shtunën, nga ora 10:00 deri në 18:00. Të dielën ordinanca është e mbyllur.',
-  },
-  {
-    q: 'A ofrohen vizita shtëpiake?',
-    a: 'Po, ofrojmë vizita shtëpiake për pacientët që nuk mund të lëvizin ose kanë nevojë urgjente. Kontaktoni me ne paraprakisht për të caktuar vizitën.',
-  },
-  {
-    q: 'Cilët mjekë punojnë në ordinancë?',
-    a: 'Ordinanca udhëhiqet nga Dr. Naser Fetahu, mjek familjar me mbi 40 vjet përvojë, dhe Dr. Besart Fetahu, i cili sjell njohuri dhe energji të reja në shërbim të pacientëve.',
-  },
-  {
-    q: 'A kryhen analiza laboratorike?',
-    a: 'Po, kryejmë analiza laboratorike në ordinancën tonë. Ekipi ynë është i pajisur për të kryer analizat e nevojshme dhe për t\'ju ofruar rezultate të shpejta dhe të besueshme.',
-  },
-  {
-    q: 'A mund të vij pa termin paraprak?',
-    a: 'Po, pranojmë edhe pacientë pa termin paraprak. Megjithatë, rekomandojmë rezervimin paraprak për të shmangur pritjen dhe për t\'u siguruar që mjeku është i disponueshëm.',
-  },
-];
+import { useLanguage } from '@/contexts/LanguageContext';
 
 export default function FAQ() {
+  const { t } = useLanguage();
   const [open, setOpen] = useState<number | null>(null);
 
   return (
@@ -39,15 +14,15 @@ export default function FAQ() {
 
         <div className="text-center mb-12">
           <p className="text-[#1a6ea8] font-semibold text-xs tracking-[0.2em] uppercase mb-3">
-            Keni pyetje?
+            {t.faq.label}
           </p>
           <h2 className="text-3xl md:text-4xl font-bold text-[#1a3557] leading-tight">
-            Pyetjet më të Shpeshta
+            {t.faq.title}
           </h2>
         </div>
 
         <div className="flex flex-col gap-3">
-          {faqs.map((faq, i) => (
+          {t.faq.items.map((faq, i) => (
             <div
               key={i}
               className={`rounded-2xl border transition-all duration-200 overflow-hidden ${
