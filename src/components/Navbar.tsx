@@ -106,6 +106,10 @@ export default function Navbar() {
 
           <div className="hidden lg:flex items-center gap-3">
             <LangSwitcher />
+            <Link href="/admin/login" className="flex items-center justify-center w-8 h-8 rounded-full bg-[#7ec8f0]/20 hover:bg-[#7ec8f0]/40 transition-colors" aria-label="Admin">
+              {/* eslint-disable-next-line @next/next/no-img-element */}
+              <img src="/ikona.png" alt="Admin" className="w-4 h-4 object-contain" />
+            </Link>
             <Link
               href="/takim"
               className="flex items-center bg-white text-[#1a3557] font-bold text-sm px-6 py-2.5 rounded-full hover:bg-gray-100 transition-colors flex-shrink-0"
