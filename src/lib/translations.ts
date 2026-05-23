@@ -116,7 +116,7 @@ export const translations = {
       successTitle: 'Termini u rezervua!',
       successDesc: 'Do t\'ju kontaktojmë së shpejti për konfirmim. Faleminderit!',
       successReset: 'Rezervo termin tjetër',
-      infoLabels: { email: 'Email', address: 'Adresa', hours: 'Orari', hoursVal: 'E Hënë – E Shtunë, 10:00 – 18:00', addressVal: 'Talinoc i Muhaxherëve, Ferizaj' },
+      infoLabels: { phone: 'Telefoni', email: 'Email', address: 'Adresa', hours: 'Orari', hoursVal: 'E Hënë – E Shtunë, 10:00 – 18:00', addressVal: 'Talinoc i Muhaxherëve, Ferizaj' },
     },
     about: {
       heroLabel: 'Ordinanca Liribes',
@@ -286,7 +286,7 @@ export const translations = {
       successTitle: 'Appointment Booked!',
       successDesc: 'We will contact you shortly to confirm. Thank you!',
       successReset: 'Book another appointment',
-      infoLabels: { email: 'Email', address: 'Address', hours: 'Working Hours', hoursVal: 'Mon – Sat, 10:00 – 18:00', addressVal: 'Talinoç i Muhaxherëve, Ferizaj' },
+      infoLabels: { phone: 'Phone', email: 'Email', address: 'Address', hours: 'Working Hours', hoursVal: 'Mon – Sat, 10:00 – 18:00', addressVal: 'Talinoç i Muhaxherëve, Ferizaj' },
     },
     about: {
       heroLabel: 'Liribes Clinic',

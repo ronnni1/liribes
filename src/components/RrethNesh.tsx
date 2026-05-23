@@ -3,12 +3,12 @@
 import Image from 'next/image';
 import { MapPin, Armchair, CalendarDays, Building2 } from 'lucide-react';
 import heroBanner from '@/assets/ordinanca.webp';
-import room1 from '@/assets/liribes_benefits.webp';
-import room2 from '@/assets/liribes_benefits1.webp';
+import room1 from '@/assets/dok1.webp';
+import room2 from '@/assets/laboratori.webp';
 import room3 from '@/assets/stetoskopi.webp';
 import room4 from '@/assets/contactbanner.webp';
 import room5 from '@/assets/earcleaning.webp';
-import room6 from '@/assets/servicesbanner.webp';
+import room6 from '@/assets/dhomaepritjes.webp';
 import { useLanguage } from '@/contexts/LanguageContext';
 
 const statIcons = [CalendarDays, MapPin, Armchair, Building2];
@@ -22,7 +22,7 @@ export default function RrethNesh() {
     <main className="pt-[70px]">
 
       <section className="relative h-[340px] overflow-hidden">
-        <Image src={heroBanner} alt="Rreth Ordinancës" fill className="object-cover object-center" priority />
+        <Image src={heroBanner} alt="Rreth Ordinancës" fill className="object-cover object-center" priority quality={100} />
         <div className="absolute inset-0 bg-gradient-to-r from-[#1a3557]/85 via-[#1a3557]/55 to-transparent" />
         <div className="relative h-full flex flex-col justify-center px-8 md:px-20">
           <p className="text-white/70 text-sm tracking-widest uppercase mb-2">{ab.heroLabel}</p>

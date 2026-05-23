@@ -78,15 +78,11 @@ export default function Footer() {
               </li>
               <li className="flex items-center gap-2.5 text-white/50 text-sm">
                 <Phone size={15} className="text-[#1a6fa8] shrink-0" />
-                044 172 736
-              </li>
-              <li className="flex items-center gap-2.5 text-white/50 text-sm">
-                <Phone size={15} className="text-[#1a6fa8] shrink-0" />
-                049 557 216
+                044 880 718
               </li>
               <li className="flex items-center gap-2.5 text-white/50 text-sm">
                 <Mail size={15} className="text-[#1a6fa8] shrink-0" />
-                info@liribes.com
+                ordinancaliribesi@gmail.com
               </li>
             </ul>
           </div>

@@ -36,7 +36,7 @@ export default function Home() {
 
       {/* Hero */}
       <section className="relative min-h-[640px] flex items-center overflow-hidden">
-        <Image src={bannerImg} alt="Banner" fill className="object-cover" style={{ objectPosition: '50% 55%' }} priority />
+        <Image src={bannerImg} alt="Banner" fill className="object-cover" style={{ objectPosition: '50% 55%' }} priority quality={100} />
         <div className="absolute inset-0 bg-[#1a6fa8]/65" />
         <div className="absolute bottom-0 left-0 right-0">
           <svg viewBox="0 0 1440 200" preserveAspectRatio="none" className="w-full block h-[100px] sm:h-[130px] md:h-[160px] lg:h-[200px]">

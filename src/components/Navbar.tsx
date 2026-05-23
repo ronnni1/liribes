@@ -87,10 +87,10 @@ export default function Navbar() {
       <div className="max-w-7xl mx-auto px-6">
         <div className="flex items-center justify-between h-[70px]">
 
-          <Link href="/" className="flex items-center flex-shrink-0">
+          <a href="/" className="flex items-center flex-shrink-0">
             {/* eslint-disable-next-line @next/next/no-img-element */}
             <img src="/logo-new.svg" alt="Liribes" className="h-16 w-auto object-contain" />
-          </Link>
+          </a>
 
           <div className="hidden lg:flex items-center gap-7">
             {navLinks.map((link) => (
@@ -106,10 +106,10 @@ export default function Navbar() {
 
           <div className="hidden lg:flex items-center gap-3">
             <LangSwitcher />
-            <Link href="/admin/login" className="flex items-center justify-center w-8 h-8 rounded-full bg-[#7ec8f0]/20 hover:bg-[#7ec8f0]/40 transition-colors" aria-label="Admin">
+            <a href="/admin/login" className="flex items-center justify-center w-8 h-8 rounded-full bg-[#7ec8f0]/20 hover:bg-[#7ec8f0]/40 transition-colors" aria-label="Admin">
               {/* eslint-disable-next-line @next/next/no-img-element */}
               <img src="/ikona.png" alt="Admin" className="w-4 h-4 object-contain" />
-            </Link>
+            </a>
             <Link
               href="/takim"
               className="flex items-center bg-white text-[#1a3557] font-bold text-sm px-6 py-2.5 rounded-full hover:bg-gray-100 transition-colors flex-shrink-0"

@@ -99,9 +99,8 @@ export default function ContactUs() {
   }
 
   const infoItems = [
-    { icon: Phone, label: 'Dr. Naser Fetahu', value: '044 172 736', color: 'bg-[#1a3557]' },
-    { icon: Phone, label: 'Dr. Besart Fetahu', value: '049 557 216', color: 'bg-[#1a6ea8]' },
-    { icon: Mail, label: t.contact.infoLabels.email, value: 'info@liribes.com', color: 'bg-[#1a3557]' },
+    { icon: Phone, label: t.contact.infoLabels.phone, value: '044 880 718', color: 'bg-[#1a3557]' },
+    { icon: Mail, label: t.contact.infoLabels.email, value: 'ordinancaliribesi@gmail.com', color: 'bg-[#1a3557]' },
     { icon: MapPin, label: t.contact.infoLabels.address, value: t.contact.infoLabels.addressVal, color: 'bg-[#1a6ea8]' },
     { icon: Clock, label: t.contact.infoLabels.hours, value: t.contact.infoLabels.hoursVal, color: 'bg-[#1a3557]' },
   ];
@@ -110,7 +109,7 @@ export default function ContactUs() {
     <main className="pt-[70px]">
 
       <section className="relative h-[340px] overflow-hidden">
-        <Image src={contactUsBanner} alt="Contact banner" fill className="object-cover object-center" priority />
+        <Image src={contactUsBanner} alt="Contact banner" fill className="object-cover object-center" priority quality={100} />
         <div className="absolute inset-0 bg-gradient-to-r from-[#1a3557]/80 via-[#1a3557]/50 to-transparent" />
         <div className="relative h-full flex flex-col justify-center px-8 md:px-20">
           <p className="text-white/70 text-sm tracking-widest uppercase mb-2">{t.contact.heroLabel}</p>
@@ -140,7 +139,7 @@ export default function ContactUs() {
                   </div>
                   <div>
                     <p className="text-xs font-semibold text-gray-400 uppercase tracking-wide">{label}</p>
-                    <p className="text-sm font-medium text-gray-800 mt-0.5">{value}</p>
+                    <p className="text-sm font-medium text-gray-800 mt-0.5 break-all">{value}</p>
                   </div>
                 </div>
               ))}
