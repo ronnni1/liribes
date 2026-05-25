@@ -99,8 +99,8 @@ export default function RrethNesh() {
       <section className="py-16 md:py-24 bg-white">
         <div className="max-w-6xl mx-auto px-6">
           <div className="text-center mb-12">
-            <p className="text-[#1a6ea8] font-semibold text-xs tracking-[0.2em] uppercase mb-3">Na gjeni</p>
-            <h2 className="text-3xl md:text-4xl font-bold text-[#1a3557]">Lokacioni Ynë</h2>
+            <p className="text-[#1a6ea8] font-semibold text-xs tracking-[0.2em] uppercase mb-3">{ab.locationLabel}</p>
+            <h2 className="text-3xl md:text-4xl font-bold text-[#1a3557]">{ab.locationTitle}</h2>
             <div className="w-12 h-1 rounded-full bg-[#1a6ea8] mx-auto mt-4" />
           </div>
 
@@ -124,7 +124,7 @@ export default function RrethNesh() {
               rel="noopener noreferrer"
               className="flex items-center gap-2 bg-[#1a3557] hover:bg-[#1a6ea8] text-white font-semibold text-sm px-8 py-3.5 rounded-xl transition-colors duration-200">
               <Navigation size={16} />
-              Na gjeni në Google Maps
+              {ab.locationBtn}
             </a>
           </div>
         </div>

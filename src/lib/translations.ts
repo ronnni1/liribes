@@ -132,6 +132,9 @@ export const translations = {
       roomsLabel: 'Ambientet tona',
       roomsTitle: 'Foto të Ordinancës',
       roomsDesc: 'Ambiente moderne dhe të pajisura mirë për të siguruar kujdesin më të mirë shëndetësor.',
+      locationLabel: 'Na gjeni',
+      locationTitle: 'Lokacioni Ynë',
+      locationBtn: 'Na gjeni në Google Maps',
       stats: [
         { value: '2004', label: 'Viti i themelimit' },
         { value: 'Ferizaj', label: 'Talinoc i Muhaxherëve' },
@@ -302,6 +305,9 @@ export const translations = {
       roomsLabel: 'Our Facilities',
       roomsTitle: 'Clinic Photos',
       roomsDesc: 'Modern and well-equipped environments to ensure the best possible healthcare.',
+      locationLabel: 'Find Us',
+      locationTitle: 'Our Location',
+      locationBtn: 'Find Us on Google Maps',
       stats: [
         { value: '2004', label: 'Year Founded' },
         { value: 'Ferizaj', label: 'Talinoc i Muhaxherëve' },
