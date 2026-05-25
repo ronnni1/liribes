@@ -118,13 +118,23 @@ export default function Navbar() {
             </Link>
           </div>
 
-          <button
-            className="lg:hidden p-2 rounded-md hover:bg-white/10 transition-colors"
-            onClick={() => setMobileOpen(!mobileOpen)}
-            aria-label="Menu"
-          >
-            {mobileOpen ? <X size={24} /> : <Menu size={24} />}
-          </button>
+          <div className="lg:hidden flex items-center gap-2">
+            <a
+              href="/admin/login"
+              className="flex items-center justify-center w-8 h-8 rounded-full bg-[#7ec8f0]/20 hover:bg-[#7ec8f0]/40 transition-colors"
+              aria-label="Admin"
+            >
+              {/* eslint-disable-next-line @next/next/no-img-element */}
+              <img src="/ikona.png" alt="Admin" className="w-4 h-4 object-contain" />
+            </a>
+            <button
+              className="p-2 rounded-md hover:bg-white/10 transition-colors"
+              onClick={() => setMobileOpen(!mobileOpen)}
+              aria-label="Menu"
+            >
+              {mobileOpen ? <X size={24} /> : <Menu size={24} />}
+            </button>
+          </div>
         </div>
       </div>
 
