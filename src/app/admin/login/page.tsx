@@ -3,16 +3,19 @@
 import { useState } from 'react';
 import { useRouter } from 'next/navigation';
 import { Lock, User, Eye, EyeOff } from 'lucide-react';
+import { useLanguage } from '@/contexts/LanguageContext';
 
 export default function AdminLogin() {
   const router = useRouter();
+  const { t } = useLanguage();
+  const al = t.adminLogin;
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
   const [error, setError] = useState('');
   const [loading, setLoading] = useState(false);
   const [showPassword, setShowPassword] = useState(false);
 
-  async function handleSubmit(e: React.FormEvent<HTMLFormElement>) {
+  async function handleSubmit(e: React.SyntheticEvent<HTMLFormElement>) {
     e.preventDefault();
     setLoading(true);
     setError('');
@@ -29,7 +32,7 @@ export default function AdminLogin() {
         setError(data.error);
       }
     } catch {
-      setError('Diçka shkoi keq. Provo përsëri.');
+      setError(al.errorMsg);
     } finally {
       setLoading(false);
     }
@@ -42,13 +45,13 @@ export default function AdminLogin() {
           <div className="bg-[#1a3557] text-white p-4 rounded-2xl mb-4">
             <Lock size={28} />
           </div>
-          <h1 className="text-2xl font-bold text-[#1a3557]">Hyrje për Stafin</h1>
-          <p className="text-gray-400 text-sm mt-1">Ordinanca Liribes</p>
+          <h1 className="text-2xl font-bold text-[#1a3557]">{al.title}</h1>
+          <p className="text-gray-400 text-sm mt-1">{al.subtitle}</p>
         </div>
 
         <div className="bg-amber-50 border border-amber-200 rounded-xl px-4 py-3 mb-4 text-center">
-          <p className="text-xs text-amber-700 font-medium">Kjo faqe është vetëm për stafin e ordinancës.</p>
-          <p className="text-xs text-amber-600 mt-0.5">Nëse jeni pacient, ju lutem kthehuni në faqen mbrapa.</p>
+          <p className="text-xs text-amber-700 font-medium">{al.notice}</p>
+          <p className="text-xs text-amber-600 mt-0.5">{al.noticePatient}</p>
         </div>
 
         <form onSubmit={handleSubmit} className="flex flex-col gap-4">
@@ -56,7 +59,7 @@ export default function AdminLogin() {
             <User size={16} className="absolute left-4 top-1/2 -translate-y-1/2 text-gray-400" />
             <input
               type="text"
-              placeholder="Emri i përdoruesit"
+              placeholder={al.usernamePlaceholder}
               value={username}
               onChange={e => setUsername(e.target.value)}
               required
@@ -68,7 +71,7 @@ export default function AdminLogin() {
             <Lock size={16} className="absolute left-4 top-1/2 -translate-y-1/2 text-gray-400" />
             <input
               type={showPassword ? 'text' : 'password'}
-              placeholder="Fjalëkalimi"
+              placeholder={al.passwordPlaceholder}
               value={password}
               onChange={e => setPassword(e.target.value)}
               required
@@ -87,7 +90,7 @@ export default function AdminLogin() {
             disabled={loading}
             className="mt-1 bg-[#1a3557] hover:bg-[#1a6ea8] text-white font-semibold text-sm py-3 rounded-xl transition-colors duration-200 disabled:opacity-50"
           >
-            {loading ? 'Duke hyrë...' : 'Hyr'}
+            {loading ? al.loggingIn : al.loginBtn}
           </button>
         </form>
       </div>

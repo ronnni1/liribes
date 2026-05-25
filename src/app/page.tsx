@@ -66,11 +66,11 @@ export default function Home() {
             <div className="w-full lg:w-1/2 flex justify-center">
               <Image src={homeImg} alt="Rreth ordinancës" width={480} height={500} className="object-contain w-full h-auto max-w-[480px]" />
             </div>
-            <div className="w-full lg:w-1/2">
+            <div className="w-full lg:w-1/2 text-left">
               <h2 className="text-3xl md:text-4xl font-bold text-gray-900 leading-tight mb-6">
                 {h.aboutTitle}<br />{h.aboutTitle2}
               </h2>
-              <p className="text-gray-500 text-base md:text-lg leading-relaxed mb-8" dangerouslySetInnerHTML={{ __html: h.aboutDesc.replace(/<b>/g, '<strong class="text-[#1a3557] font-semibold">').replace(/<\/b>/g, '</strong>') }} />
+              <p className="text-gray-500 text-base md:text-lg leading-relaxed mb-8 text-left" dangerouslySetInnerHTML={{ __html: h.aboutDesc.replace(/<b>/g, '<strong class="text-[#1a3557] font-semibold whitespace-nowrap">').replace(/<\/b>/g, '</strong>') }} />
               <Link href="/sherbimet" className="inline-flex items-center bg-[#1a3557] text-white font-semibold px-8 py-3.5 rounded-full hover:bg-[#15294a] transition-colors">
                 {h.aboutBtn}
               </Link>
