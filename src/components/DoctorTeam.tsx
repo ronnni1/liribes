@@ -9,7 +9,7 @@ import m4 from '@/assets/member4.webp';
 import { useLanguage } from '@/contexts/LanguageContext';
 
 const memberImgs = [m1, m2, m3, m4];
-const memberNames = ['Dr. Arben Krasniqi', 'Dr. Erion Halimi', 'Dr. Arta Berisha', 'Inf. Vjosa Gashi'];
+const memberNames = ['Dr. Naser Fetahu', 'Dr. Besart Fetahu', 'Dr. Greta Fetahu', 'Inf. Qendresa Fetahu'];
 
 export default function DoctorTeam() {
   const { t } = useLanguage();

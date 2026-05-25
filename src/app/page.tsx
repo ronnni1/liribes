@@ -70,7 +70,7 @@ export default function Home() {
               <h2 className="text-3xl md:text-4xl font-bold text-gray-900 leading-tight mb-6">
                 {h.aboutTitle}<br />{h.aboutTitle2}
               </h2>
-              <p className="text-gray-500 text-base md:text-lg leading-relaxed mb-8">{h.aboutDesc}</p>
+              <p className="text-gray-500 text-base md:text-lg leading-relaxed mb-8" dangerouslySetInnerHTML={{ __html: h.aboutDesc.replace(/<b>/g, '<strong class="text-[#1a3557] font-semibold">').replace(/<\/b>/g, '</strong>') }} />
               <Link href="/sherbimet" className="inline-flex items-center bg-[#1a3557] text-white font-semibold px-8 py-3.5 rounded-full hover:bg-[#15294a] transition-colors">
                 {h.aboutBtn}
               </Link>
@@ -142,7 +142,7 @@ export default function Home() {
             <path d="M0,185 C150,165 300,95 500,65 C670,38 750,125 920,115 C1090,105 1150,42 1350,38 C1410,36 1435,37 1440,37 L1440,200 L0,200 Z" fill="white" />
           </svg>
         </div>
-        <div className="absolute bottom-[28%] left-0 right-0 flex justify-center pointer-events-none select-none overflow-hidden">
+        <div className="absolute bottom-[50%] md:bottom-[28%] left-0 right-0 flex justify-center pointer-events-none select-none overflow-hidden">
           <span className="text-[60px] md:text-[90px] font-extrabold text-white/8 leading-none tracking-widest">Shërbime</span>
         </div>
         <div className="relative z-10 pt-[160px] pb-[180px] md:pt-[200px] md:pb-[220px] px-6">

@@ -1,7 +1,7 @@
 'use client';
 
 import Image from 'next/image';
-import { MapPin, Armchair, CalendarDays, Building2 } from 'lucide-react';
+import { MapPin, Armchair, CalendarDays, Building2, Navigation } from 'lucide-react';
 import heroBanner from '@/assets/ordinanca.webp';
 import room1 from '@/assets/dok1.webp';
 import room2 from '@/assets/laboratori.webp';
@@ -91,6 +91,41 @@ export default function RrethNesh() {
                 </div>
               </div>
             ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Lokacioni */}
+      <section className="py-16 md:py-24 bg-white">
+        <div className="max-w-6xl mx-auto px-6">
+          <div className="text-center mb-12">
+            <p className="text-[#1a6ea8] font-semibold text-xs tracking-[0.2em] uppercase mb-3">Na gjeni</p>
+            <h2 className="text-3xl md:text-4xl font-bold text-[#1a3557]">Lokacioni Ynë</h2>
+            <div className="w-12 h-1 rounded-full bg-[#1a6ea8] mx-auto mt-4" />
+          </div>
+
+          <div className="rounded-2xl overflow-hidden shadow-lg border border-gray-100">
+            <iframe
+              src="https://maps.google.com/maps?q=42.39308039150725,21.180289196573167&hl=sq&z=18&output=embed"
+              width="100%"
+              height="450"
+              style={{ border: 0 }}
+              allowFullScreen
+              loading="lazy"
+              referrerPolicy="no-referrer-when-downgrade"
+              title="Lokacioni i Ordinancës Liribes"
+            />
+          </div>
+
+          <div className="flex justify-center mt-6">
+            <a
+              href="https://maps.app.goo.gl/R7e83Ge2UKjfWLmF6"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="flex items-center gap-2 bg-[#1a3557] hover:bg-[#1a6ea8] text-white font-semibold text-sm px-8 py-3.5 rounded-xl transition-colors duration-200">
+              <Navigation size={16} />
+              Na gjeni në Google Maps
+            </a>
           </div>
         </div>
       </section>
