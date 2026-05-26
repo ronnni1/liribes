@@ -3,16 +3,19 @@
 import Image from 'next/image';
 import { MapPin, Armchair, CalendarDays, Building2, Navigation } from 'lucide-react';
 import heroBanner from '@/assets/ordinanca.webp';
-import room1 from '@/assets/dok1.webp';
-import room2 from '@/assets/laboratori.webp';
-import room3 from '@/assets/stetoskopi.webp';
-import room4 from '@/assets/contactbanner.webp';
-import room5 from '@/assets/earcleaning.webp';
-import room6 from '@/assets/dhomaepritjes.webp';
+import room1 from '@/assets/dhomaebesartit.webp';
+import room2 from '@/assets/dhomaenaserit.webp';
+import room3 from '@/assets/dhomaepritjes_v2.webp';
+import room4 from '@/assets/EKG.webp';
+import room5 from '@/assets/dhomaeinfuzioneve.webp';
+import room6 from '@/assets/dhomaeineksioneve.webp';
+import room7 from '@/assets/laboratori.webp';
+import room8 from '@/assets/ambienti.webp';
+import room9 from '@/assets/liridonii.webp';
 import { useLanguage } from '@/contexts/LanguageContext';
 
 const statIcons = [CalendarDays, MapPin, Armchair, Building2];
-const roomImgs = [room1, room2, room3, room4, room5, room6];
+const roomImgs = [room1, room2, room3, room4, room5, room6, room7, room8, room9];
 
 export default function RrethNesh() {
   const { t } = useLanguage();

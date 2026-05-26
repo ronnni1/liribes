@@ -2,14 +2,15 @@
 
 import Image from 'next/image';
 
-import m1 from '@/assets/member1.webp';
-import m2 from '@/assets/member2.webp';
-import m3 from '@/assets/member3.webp';
-import m4 from '@/assets/member4.webp';
+import m1 from '@/assets/Naseri.webp';
+import m2 from '@/assets/besarti1.webp';
+import m3 from '@/assets/Greta.webp';
+import m4 from '@/assets/Qendresa.webp';
+import m5 from '@/assets/Liridoni1.webp';
 import { useLanguage } from '@/contexts/LanguageContext';
 
-const memberImgs = [m1, m2, m3, m4];
-const memberNames = ['Dr. Naser Fetahu', 'Dr. Besart Fetahu', 'Dr. Greta Fetahu', 'Inf. Qendresa Fetahu'];
+const memberImgs = [m1, m2, m3, m4, m5];
+const memberNames = ['Naser Fetahu', 'Besart Fetahu', 'Greta Fetahu', 'Qendresa Fetahu', 'Liridon Fetahu'];
 
 export default function DoctorTeam() {
   const { t } = useLanguage();
@@ -17,7 +18,7 @@ export default function DoctorTeam() {
   return (
     <section className="relative bg-white py-20 overflow-hidden">
 
-      <div className="absolute top-10 left-0 right-0 flex justify-center pointer-events-none select-none">
+      <div className="absolute top-10 left-0 right-0 flex justify-center pointer-events-none select-none z-0">
         <span className="text-[80px] md:text-[130px] font-extrabold text-gray-100 leading-none tracking-widest">
           {t.team.watermark}
         </span>
@@ -35,14 +36,22 @@ export default function DoctorTeam() {
         </p>
       </div>
 
-      <div className="relative z-10 max-w-6xl mx-auto px-6 grid grid-cols-2 md:grid-cols-4 gap-6">
+      <div className="relative z-10 max-w-[1500px] mx-auto px-10 grid grid-cols-2 md:grid-cols-5 gap-10">
         {memberImgs.map((img, i) => (
-          <div key={memberNames[i]} className="group flex flex-col items-center text-center">
-            <div className="relative w-full aspect-[3/4] mb-4 overflow-hidden rounded-2xl bg-gray-50">
-              <Image src={img} alt={memberNames[i]} fill className="object-cover object-top" />
+          <div key={memberNames[i]} className={`group flex flex-col items-center text-center${i === 4 ? ' col-span-2 md:col-span-1' : ''}`}>
+            <div className={`${i === 4 ? 'w-1/2 md:w-full' : 'w-full'} flex flex-col items-center text-center`}>
+              <div className="relative w-full aspect-[3/4] mb-4 overflow-hidden rounded-2xl bg-white">
+                <Image
+                  src={img}
+                  alt={memberNames[i]}
+                  fill
+                  quality={100}
+                  className={i === 2 ? 'object-cover object-center scale-[2.1] origin-center' : i === 4 ? 'object-cover object-center scale-[1.6] origin-[68%_50%]' : 'object-cover object-center scale-[1.6] origin-center'}
+                />
+              </div>
+              <h3 className="font-bold text-gray-900 text-base">{memberNames[i]}</h3>
+              <p className="text-[#1a6fa8] text-sm mt-0.5">{t.team.roles[i]}</p>
             </div>
-            <h3 className="font-bold text-gray-900 text-base">{memberNames[i]}</h3>
-            <p className="text-[#1a6fa8] text-sm mt-0.5">{t.team.roles[i]}</p>
           </div>
         ))}
       </div>

@@ -5,8 +5,8 @@ import Link from 'next/link';
 import { Stethoscope, BadgeCheck, Award, HeartHandshake, Syringe, Bandage } from 'lucide-react';
 import bannerImg from '@/assets/liribes.webp';
 import homeImg from '@/assets/home_img.webp';
-import benefitsImg from '@/assets/liribes_benefits.webp';
-import benefitsImg1 from '@/assets/liribes_benefits1.webp';
+import benefitsImg from '@/assets/banner2.webp';
+import benefitsImg1 from '@/assets/midbanner.webp';
 import CareProcess from '@/components/CareProcess';
 import DoctorTeam from '@/components/DoctorTeam';
 import LatestNews from '@/components/LatestNews';
@@ -116,7 +116,7 @@ export default function Home() {
             </div>
             <div className="w-full lg:w-1/2 flex justify-center">
               <div className="relative w-[340px] h-[340px] md:w-[420px] md:h-[420px]">
-                <div className="w-full h-full rounded-full overflow-hidden border-[6px] border-white shadow-2xl">
+                <div className="relative w-full h-full rounded-full overflow-hidden border-[6px] border-white shadow-2xl">
                   <Image src={benefitsImg} alt="Shërbime mjekësore" fill className="object-cover" />
                 </div>
                 <div className="absolute -bottom-6 -left-6 w-[130px] h-[130px] md:w-[155px] md:h-[155px] rounded-full overflow-hidden border-[5px] border-white shadow-xl">

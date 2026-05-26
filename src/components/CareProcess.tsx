@@ -2,7 +2,7 @@
 
 import { useState } from 'react';
 import Image from 'next/image';
-import staffImg from '@/assets/staff.webp';
+import staffImg from '@/assets/stafi.webp';
 import { useLanguage } from '@/contexts/LanguageContext';
 
 const bgs = [
@@ -28,7 +28,7 @@ export default function CareProcess() {
             <h2 className="text-3xl md:text-4xl font-bold text-gray-900 leading-tight mb-5">
               <span className="text-[#1a6fa8]">{t.care.title1}</span> {t.care.title2}
             </h2>
-            <p className="text-gray-400 text-base leading-relaxed max-w-md mb-8">
+            <p className="text-gray-400 text-base leading-relaxed max-w-md mb-0">
               {t.care.desc}
             </p>
             <Image
@@ -36,7 +36,7 @@ export default function CareProcess() {
               alt="Ekipi mjekësor Liribes"
               width={520}
               height={340}
-              className="w-full h-auto object-contain"
+              className="w-full h-auto object-contain -mt-16 md:-mt-40"
             />
           </div>
 
