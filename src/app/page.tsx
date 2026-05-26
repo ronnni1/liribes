@@ -58,7 +58,7 @@ export default function Home() {
 
       {/* About */}
       <section className="relative overflow-hidden bg-white py-16 md:py-24">
-        <div className="absolute inset-0 flex items-center justify-end pr-8 pointer-events-none select-none">
+        <div className="absolute inset-0 flex items-center justify-end pr-8 pointer-events-none select-none z-0">
           <span className="text-[80px] md:text-[120px] font-extrabold text-gray-100 leading-none tracking-widest">{h.aboutWatermark}</span>
         </div>
         <div className="relative z-10 max-w-7xl mx-auto px-6">
@@ -88,7 +88,7 @@ export default function Home() {
             <path d="M0,185 C150,165 300,95 500,65 C670,38 750,125 920,115 C1090,105 1150,42 1350,38 C1410,36 1435,37 1440,37 L1440,200 L0,200 Z" fill="white" />
           </svg>
         </div>
-        <div className="absolute top-8 left-0 pointer-events-none select-none overflow-hidden">
+        <div className="absolute top-8 left-0 pointer-events-none select-none overflow-hidden z-0">
           <span className="text-[100px] md:text-[150px] font-extrabold text-gray-100 leading-none">Liribes</span>
         </div>
         <div className="relative z-10 max-w-7xl mx-auto px-6">
@@ -142,7 +142,7 @@ export default function Home() {
             <path d="M0,185 C150,165 300,95 500,65 C670,38 750,125 920,115 C1090,105 1150,42 1350,38 C1410,36 1435,37 1440,37 L1440,200 L0,200 Z" fill="white" />
           </svg>
         </div>
-        <div className="absolute bottom-[50%] md:bottom-[28%] left-0 right-0 flex justify-center pointer-events-none select-none overflow-hidden">
+        <div className="absolute bottom-[50%] md:bottom-[28%] left-0 right-0 flex justify-center pointer-events-none select-none overflow-hidden z-0">
           <span className="text-[60px] md:text-[90px] font-extrabold text-white/8 leading-none tracking-widest">Shërbime</span>
         </div>
         <div className="relative z-10 pt-[160px] pb-[180px] md:pt-[200px] md:pb-[220px] px-6">
