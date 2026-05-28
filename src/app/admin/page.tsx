@@ -88,7 +88,7 @@ export default function AdminDashboard() {
   const doctors = ['Dr. Naser Fetahu', 'Dr. Besart Fetahu'];
 
   return (
-    <div className="min-h-screen bg-[#f0f4f8]">
+    <div className="min-h-screen bg-[#f0f4f8] pt-[70px]">
       {/* Header */}
       <div className="bg-[#1a3557] text-white px-6 py-4 flex items-center justify-between">
         <div>
