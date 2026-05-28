@@ -5,7 +5,7 @@ import Image from 'next/image';
 import m1 from '@/assets/Naseri.webp';
 import m2 from '@/assets/besarti1.webp';
 import m3 from '@/assets/Greta.webp';
-import m4 from '@/assets/Qendresa.webp';
+import m4 from '@/assets/qendresa1.webp';
 import m5 from '@/assets/Liridoni1.webp';
 import { useLanguage } from '@/contexts/LanguageContext';
 
@@ -19,7 +19,7 @@ export default function DoctorTeam() {
     <section className="relative bg-white py-20 overflow-hidden">
 
       <div className="absolute top-10 left-0 right-0 flex justify-center pointer-events-none select-none z-0">
-        <span className="text-[80px] md:text-[130px] font-extrabold text-gray-100 leading-none tracking-widest">
+        <span className="text-[80px] md:text-[130px] font-extrabold leading-none tracking-widest text-gray-900 opacity-[0.05]">
           {t.team.watermark}
         </span>
       </div>
@@ -46,7 +46,7 @@ export default function DoctorTeam() {
                   alt={memberNames[i]}
                   fill
                   quality={100}
-                  className={i === 2 ? 'object-cover object-center scale-[2.1] origin-center' : i === 4 ? 'object-cover object-center scale-[1.6] origin-[68%_50%]' : 'object-cover object-center scale-[1.6] origin-center'}
+                  className={i === 2 ? 'object-cover object-center scale-[2.1] origin-center' : i === 3 ? 'object-cover object-center scale-[1.0] origin-[50%_20%]' : i === 4 ? 'object-cover object-center scale-[1.6] origin-[68%_50%]' : 'object-cover object-center scale-[1.6] origin-center'}
                 />
               </div>
               <h3 className="font-bold text-gray-900 text-base">{memberNames[i]}</h3>
