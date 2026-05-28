@@ -16,6 +16,17 @@ const ALL_SLOTS = [
   '16:00','16:30','17:00','17:30',
 ];
 
+const PAUSE_SLOTS = ['12:30', '13:00'];
+
+function isPast(dateStr: string, slot: string) {
+  if (!dateStr) return false;
+  const today = new Date().toISOString().split('T')[0];
+  if (dateStr !== today) return false;
+  const now = new Date();
+  const [h, m] = slot.split(':').map(Number);
+  return now.getHours() > h || (now.getHours() === h && now.getMinutes() >= m);
+}
+
 function isBlocked(dateStr: string) {
   if (!dateStr) return false;
   const d = new Date(dateStr);
@@ -255,11 +266,14 @@ export default function ContactUs() {
                       <div className="grid grid-cols-4 gap-2">
                         {ALL_SLOTS.map(slot => {
                           const taken = bookedSlots.includes(slot);
+                          const pause = PAUSE_SLOTS.includes(slot);
+                          const past = isPast(date, slot);
+                          const disabled = taken || pause || past;
                           const selected = time === slot;
                           return (
-                            <button key={slot} type="button" disabled={taken} onClick={() => setTime(slot)}
+                            <button key={slot} type="button" disabled={disabled} onClick={() => setTime(slot)}
                               className={`py-2 rounded-xl text-xs font-semibold border-2 transition-all ${
-                                taken
+                                disabled
                                   ? 'border-gray-100 bg-gray-50 text-gray-300 cursor-not-allowed line-through'
                                   : selected
                                   ? 'border-[#1a6ea8] bg-[#1a6ea8] text-white'
@@ -271,14 +285,6 @@ export default function ContactUs() {
                         })}
                       </div>
                     )}
-                    <div className="flex items-center gap-4 mt-2">
-                      <span className="flex items-center gap-1.5 text-xs text-gray-400">
-                        <span className="w-3 h-3 rounded bg-gray-100 border border-gray-200 inline-block" />{t.contact.slotTakenLabel}
-                      </span>
-                      <span className="flex items-center gap-1.5 text-xs text-gray-400">
-                        <span className="w-3 h-3 rounded bg-[#1a6ea8] inline-block" />{t.contact.slotSelectedLabel}
-                      </span>
-                    </div>
                   </div>
                 )}
 
