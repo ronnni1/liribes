@@ -1,7 +1,7 @@
 'use client';
 
 import Image from 'next/image';
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useRef } from 'react';
 import { Phone, Mail, MapPin, Clock, CalendarCheck, User, CheckCircle2 } from 'lucide-react';
 import contactBanner from '@/assets/contactbanner.webp';
 import contactUsBanner from '@/assets/contactusbanner.webp';
@@ -60,6 +60,7 @@ export default function ContactUs() {
   const [submitting, setSubmitting] = useState(false);
   const [success, setSuccess] = useState(false);
   const [submitError, setSubmitError] = useState('');
+  const successRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
     if (!date || !doctor) { setBookedSlots([]); setTime(''); return; }
@@ -100,7 +101,7 @@ export default function ContactUs() {
         setSubmitError(t.contact.submitErrorMsg);
       } else {
         setSuccess(true);
-        window.scrollTo({ top: 0, behavior: 'smooth' });
+        setTimeout(() => successRef.current?.scrollIntoView({ behavior: 'smooth', block: 'center' }), 50);
       }
     } catch {
       setSubmitError(t.contact.submitErrorMsg);
@@ -171,12 +172,11 @@ export default function ContactUs() {
           </div>
         </div>
 
-        <div className="bg-white rounded-3xl shadow-xl border border-gray-100 p-8">
+        <div ref={successRef} className="bg-white rounded-3xl shadow-xl border border-gray-100 p-8">
           {success ? (
             <div className="flex flex-col items-center justify-center py-12 text-center gap-4">
               <CheckCircle2 size={56} className="text-green-500" />
               <h3 className="text-xl font-bold text-[#1a3557]">{t.contact.successTitle}</h3>
-              <p className="text-gray-400 text-sm max-w-xs">{t.contact.successDesc}</p>
               <button onClick={resetForm} className="mt-2 text-sm text-[#1a6ea8] font-semibold hover:underline">
                 {t.contact.successReset}
               </button>

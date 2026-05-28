@@ -91,65 +91,106 @@ export default function AdminDashboard() {
   return (
     <div className="min-h-screen w-full max-w-full overflow-x-hidden bg-[#f0f4f8] pt-[70px]">
       {/* Header */}
-      <div className="bg-[#1a3557] text-white px-6 py-4 flex items-center justify-between">
+      <div className="bg-[#1a3557] text-white px-4 py-4 flex items-center justify-between">
         <div>
-          <h1 className="text-xl font-bold">Ordinanca Liribes</h1>
+          <h1 className="text-lg font-bold">Ordinanca Liribes</h1>
           <p className="text-white/60 text-xs">Panel Administrativ</p>
         </div>
-        <div className="flex items-center gap-3">
+        <div className="flex items-center gap-2">
           <button onClick={fetchBookings} className="flex items-center gap-1.5 text-white/70 hover:text-white text-sm transition">
             <RefreshCw size={14} /> Rifresko
           </button>
-          <button onClick={logout} className="flex items-center gap-1.5 bg-white/10 hover:bg-white/20 text-white text-sm px-4 py-2 rounded-xl transition">
+          <button onClick={logout} className="flex items-center gap-1.5 bg-white/10 hover:bg-white/20 text-white text-sm px-3 py-2 rounded-xl transition">
             <LogOut size={14} /> Dil
           </button>
         </div>
       </div>
 
-      <div className="max-w-6xl mx-auto px-6 py-8">
+      <div className="w-full px-4 py-6 md:max-w-6xl md:mx-auto md:px-6 md:py-8">
         {/* Stats */}
-        <div className="grid grid-cols-2 md:grid-cols-4 gap-4 mb-8">
+        <div className="grid grid-cols-2 gap-3 mb-6 md:grid-cols-4 md:gap-4 md:mb-8">
           {[
             { label: 'Gjithsej', value: bookings.length, color: 'bg-[#1a3557] text-white' },
             { label: 'Sot', value: bookings.filter(b => b.date === today).length, color: 'bg-amber-500 text-white' },
             { label: 'Ardhshëm', value: bookings.filter(b => b.date > today).length, color: 'bg-green-600 text-white' },
             { label: 'Kaluar', value: bookings.filter(b => b.date < today).length, color: 'bg-gray-400 text-white' },
           ].map(s => (
-            <div key={s.label} className={`${s.color} rounded-2xl p-5`}>
-              <p className="text-3xl font-bold">{s.value}</p>
+            <div key={s.label} className={`${s.color} rounded-2xl p-4 md:p-5`}>
+              <p className="text-2xl md:text-3xl font-bold">{s.value}</p>
               <p className="text-sm opacity-80 mt-1">{s.label}</p>
             </div>
           ))}
         </div>
 
         {/* Filters */}
-        <div className="flex flex-wrap items-center gap-3 mb-6">
-          <div className="flex gap-2 bg-white rounded-xl p-1 shadow-sm border border-gray-100">
+        <div className="flex flex-col gap-3 mb-5 md:flex-row md:flex-wrap md:items-center md:mb-6">
+          <div className="flex gap-1 bg-white rounded-xl p-1 shadow-sm border border-gray-100 w-full md:w-auto">
             {(['upcoming', 'today', 'all', 'past'] as const).map(f => (
               <button key={f} onClick={() => setFilter(f)}
-                className={`px-4 py-1.5 rounded-lg text-sm font-medium transition-all ${filter === f ? 'bg-[#1a3557] text-white' : 'text-gray-500 hover:text-[#1a3557]'}`}>
+                className={`flex-1 md:flex-none px-3 py-1.5 rounded-lg text-xs md:text-sm font-medium transition-all ${filter === f ? 'bg-[#1a3557] text-white' : 'text-gray-500 hover:text-[#1a3557]'}`}>
                 {f === 'upcoming' ? 'Ardhshëm' : f === 'today' ? 'Sot' : f === 'all' ? 'Të gjitha' : 'Kaluar'}
               </button>
             ))}
           </div>
-          <div className="flex gap-2 bg-white rounded-xl p-1 shadow-sm border border-gray-100">
+          <div className="flex gap-1 bg-white rounded-xl p-1 shadow-sm border border-gray-100 w-full md:w-auto">
             {doctors.map(d => (
               <button key={d} onClick={() => setDoctorFilter(d)}
-                className={`px-4 py-1.5 rounded-lg text-sm font-medium transition-all ${doctorFilter === d ? 'bg-[#1a6ea8] text-white' : 'text-gray-500 hover:text-[#1a3557]'}`}>
+                className={`flex-1 md:flex-none px-3 py-1.5 rounded-lg text-xs md:text-sm font-medium transition-all ${doctorFilter === d ? 'bg-[#1a6ea8] text-white' : 'text-gray-500 hover:text-[#1a3557]'}`}>
                 {d.replace('Dr. ', '')}
               </button>
             ))}
           </div>
         </div>
 
-        {/* Table */}
-        <div className="bg-white rounded-2xl shadow-sm border border-gray-100">
-          {loading ? (
-            <div className="flex items-center justify-center py-20 text-gray-400 text-sm">Duke ngarkuar...</div>
-          ) : filtered.length === 0 ? (
-            <div className="flex items-center justify-center py-20 text-gray-400 text-sm">Nuk ka termine për këtë filtër.</div>
-          ) : (
-            <div className="overflow-x-auto rounded-2xl">
+        {/* Content */}
+        {loading ? (
+          <div className="flex items-center justify-center py-20 text-gray-400 text-sm">Duke ngarkuar...</div>
+        ) : filtered.length === 0 ? (
+          <div className="bg-white rounded-2xl flex items-center justify-center py-20 text-gray-400 text-sm shadow-sm border border-gray-100">Nuk ka termine për këtë filtër.</div>
+        ) : (
+          <>
+            {/* Mobile cards */}
+            <div className="flex flex-col gap-3 md:hidden">
+              {filtered.map(b => {
+                const status = statusBadge(b.date);
+                return (
+                  <div key={b.id} className="bg-white rounded-2xl p-4 shadow-sm border border-gray-100">
+                    <div className="flex items-center justify-between mb-3">
+                      <span className={`text-xs font-semibold px-2.5 py-1 rounded-full ${status.cls}`}>{status.label}</span>
+                      <button onClick={() => setRefuzeModal({ booking: b, reason: '' })}
+                        className="flex items-center gap-1 text-xs font-medium text-red-400 border border-red-200 px-2.5 py-1.5 rounded-lg">
+                        <XCircle size={13} /> Refuzo
+                      </button>
+                    </div>
+                    <div className="grid grid-cols-2 gap-x-4 gap-y-2 text-xs">
+                      <div>
+                        <p className="text-gray-400 mb-0.5">Pacienti</p>
+                        <p className="font-semibold text-gray-800">{b.name}</p>
+                      </div>
+                      <div>
+                        <p className="text-gray-400 mb-0.5">Data &amp; Ora</p>
+                        <p className="font-semibold text-[#1a3557]">{b.date} · {b.time}</p>
+                      </div>
+                      <div>
+                        <p className="text-gray-400 mb-0.5">Telefoni</p>
+                        <p className="text-gray-600">{b.phone}</p>
+                      </div>
+                      <div>
+                        <p className="text-gray-400 mb-0.5">Doktori</p>
+                        <p className="text-gray-600">{b.doctor.replace('Dr. ', '')}</p>
+                      </div>
+                      <div className="col-span-2">
+                        <p className="text-gray-400 mb-0.5">Shërbimi</p>
+                        <p className="text-gray-600">{b.service}</p>
+                      </div>
+                    </div>
+                  </div>
+                );
+              })}
+            </div>
+
+            {/* Desktop table */}
+            <div className="hidden md:block bg-white rounded-2xl shadow-sm border border-gray-100 overflow-x-auto">
               <table className="w-full text-sm">
                 <thead>
                   <tr className="border-b border-gray-100 bg-gray-50">
@@ -172,12 +213,10 @@ export default function AdminDashboard() {
                         </td>
                         <td className="px-5 py-4">
                           <div className="flex items-center gap-1.5 text-[#1a3557] font-semibold">
-                            <CalendarDays size={14} className="text-gray-400" />
-                            {b.date}
+                            <CalendarDays size={14} className="text-gray-400" />{b.date}
                           </div>
                           <div className="flex items-center gap-1.5 text-gray-400 mt-0.5">
-                            <Clock size={13} />
-                            {b.time}
+                            <Clock size={13} />{b.time}
                           </div>
                         </td>
                         <td className="px-5 py-4">
@@ -190,26 +229,21 @@ export default function AdminDashboard() {
                         </td>
                         <td className="px-5 py-4">
                           <div className="flex items-center gap-1.5 text-gray-600">
-                            <Phone size={13} className="text-gray-400" />
-                            {b.phone}
+                            <Phone size={13} className="text-gray-400" />{b.phone}
                           </div>
                         </td>
                         <td className="px-5 py-4 text-gray-600">
                           <div className="flex items-center gap-1.5">
-                            <User size={13} className="text-gray-400" />
-                            {b.doctor}
+                            <User size={13} className="text-gray-400" />{b.doctor}
                           </div>
                         </td>
                         <td className="px-5 py-4">
                           <div className="flex items-center gap-1.5 text-gray-600">
-                            <Stethoscope size={13} className="text-gray-400" />
-                            {b.service}
+                            <Stethoscope size={13} className="text-gray-400" />{b.service}
                           </div>
                         </td>
                         <td className="px-5 py-4">
-                          <button
-                            onClick={() => setRefuzeModal({ booking: b, reason: '' })}
-                            title="Refuzo me WhatsApp"
+                          <button onClick={() => setRefuzeModal({ booking: b, reason: '' })}
                             className="flex items-center gap-1 text-xs font-medium text-red-400 hover:text-red-600 border border-red-200 hover:border-red-400 px-2.5 py-1.5 rounded-lg transition-all">
                             <XCircle size={13} /> Refuzo
                           </button>
@@ -220,8 +254,8 @@ export default function AdminDashboard() {
                 </tbody>
               </table>
             </div>
-          )}
-        </div>
+          </>
+        )}
       </div>
 
       {/* Refuze Modal */}
