@@ -52,8 +52,15 @@ export default function AdminDashboard() {
 
   async function confirmRefuze() {
     if (!refuzeModal) return;
-    setDeleting(true);
     const { booking, reason } = refuzeModal;
+
+    // window.open must be called synchronously (direct user action) before any await
+    const msg = `Pershendetje ${booking.name},\n\nTermini juaj në Ordinancën Liribes për datën *${booking.date}* në orën *${booking.time}* është anuluar.\n\nArsyeja: ${reason || 'Nuk është specifikuar'}\n\nJu faleminderit për mirëkuptim.\n— Ordinanca Liribes`;
+    const phone = formatPhone(booking.phone);
+    window.open(`https://wa.me/${phone}?text=${encodeURIComponent(msg)}`, '_blank');
+
+    setRefuzeModal(null);
+    setDeleting(true);
 
     await fetch('/api/admin/bookings', {
       method: 'DELETE',
@@ -61,12 +68,6 @@ export default function AdminDashboard() {
       body: JSON.stringify({ id: booking.id }),
     });
     setBookings(prev => prev.filter(b => b.id !== booking.id));
-
-    const msg = `Pershendetje ${booking.name},\n\nTermini juaj në Ordinancën Liribes për datën *${booking.date}* në orën *${booking.time}* është anuluar.\n\nArsyeja: ${reason || 'Nuk është specifikuar'}\n\nJu faleminderit për mirëkuptim.\n— Ordinanca Liribes`;
-    const phone = formatPhone(booking.phone);
-    window.open(`https://wa.me/${phone}?text=${encodeURIComponent(msg)}`, '_blank');
-
-    setRefuzeModal(null);
     setDeleting(false);
   }
 
@@ -88,7 +89,7 @@ export default function AdminDashboard() {
   const doctors = ['Dr. Naser Fetahu', 'Dr. Besart Fetahu'];
 
   return (
-    <div className="min-h-screen bg-[#f0f4f8] pt-[70px]">
+    <div className="min-h-screen w-full max-w-full overflow-x-hidden bg-[#f0f4f8] pt-[70px]">
       {/* Header */}
       <div className="bg-[#1a3557] text-white px-6 py-4 flex items-center justify-between">
         <div>
@@ -142,13 +143,13 @@ export default function AdminDashboard() {
         </div>
 
         {/* Table */}
-        <div className="bg-white rounded-2xl shadow-sm border border-gray-100 overflow-hidden">
+        <div className="bg-white rounded-2xl shadow-sm border border-gray-100">
           {loading ? (
             <div className="flex items-center justify-center py-20 text-gray-400 text-sm">Duke ngarkuar...</div>
           ) : filtered.length === 0 ? (
             <div className="flex items-center justify-center py-20 text-gray-400 text-sm">Nuk ka termine për këtë filtër.</div>
           ) : (
-            <div className="overflow-x-auto">
+            <div className="overflow-x-auto rounded-2xl">
               <table className="w-full text-sm">
                 <thead>
                   <tr className="border-b border-gray-100 bg-gray-50">

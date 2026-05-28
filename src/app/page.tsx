@@ -58,7 +58,7 @@ export default function Home() {
 
       {/* About */}
       <section className="relative overflow-hidden bg-white py-16 md:py-24">
-        <div className="absolute inset-0 flex items-center justify-end pr-8 pointer-events-none select-none z-0">
+        <div className="absolute inset-0 hidden md:flex items-center justify-end pr-8 pointer-events-none select-none z-0">
           <span className="text-[80px] md:text-[120px] font-extrabold leading-none tracking-widest text-gray-900 opacity-[0.05]">{h.aboutWatermark}</span>
         </div>
         <div className="relative z-10 max-w-7xl mx-auto px-6">

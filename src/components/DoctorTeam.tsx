@@ -18,7 +18,7 @@ export default function DoctorTeam() {
   return (
     <section className="relative bg-white py-20 overflow-hidden">
 
-      <div className="absolute top-10 left-0 right-0 flex justify-center pointer-events-none select-none z-0">
+      <div className="absolute top-10 left-0 right-0 hidden md:flex justify-center pointer-events-none select-none z-0">
         <span className="text-[80px] md:text-[130px] font-extrabold leading-none tracking-widest text-gray-900 opacity-[0.05]">
           {t.team.watermark}
         </span>
