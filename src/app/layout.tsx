@@ -13,6 +13,11 @@ export const metadata: Metadata = {
     template: "%s | Ordinanca Liribes",
   },
   description: "Ordinancë private për mjekësi familjare në Ferizaj. Dr. Naser Fetahu dhe Dr. Besart Fetahu ofrojnë vizita, vaksinime, EKG, vizita shtëpiake dhe më shumë. E hënë–e shtunë, 10:00–18:00.",
+  icons: {
+    icon: "/logo.svg",
+    shortcut: "/logo.svg",
+    apple: "/logo.svg",
+  },
   keywords: [
     "ordinancë private Ferizaj",
     "mjek familjar Ferizaj",
