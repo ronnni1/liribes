@@ -5,7 +5,7 @@ import Link from 'next/link';
 import { Stethoscope, BadgeCheck, Award, HeartHandshake, Syringe, Bandage } from 'lucide-react';
 import bannerImg from '@/assets/liribes.webp';
 import homeImg from '@/assets/home_img.webp';
-import benefitsImg from '@/assets/banner2.webp';
+import benefitsImg from '@/assets/image.webp';
 import benefitsImg1 from '@/assets/midbanner.webp';
 import CareProcess from '@/components/CareProcess';
 import DoctorTeam from '@/components/DoctorTeam';
